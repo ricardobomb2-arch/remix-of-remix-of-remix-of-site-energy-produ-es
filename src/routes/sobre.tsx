@@ -64,7 +64,7 @@ function Sobre() {
 
       <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
         <Reveal>
-          <h2 className="text-4xl font-semibold md:text-6xl">O que <span className="text-gradient">fazemos</span></h2>
+          <SplitText className="text-4xl font-semibold md:text-6xl">O que <span className="text-gradient">fazemos</span></SplitText>
         </Reveal>
         <div className="mt-12 flex flex-wrap gap-3">
           {SERVICES.map((s, i) => (
@@ -80,7 +80,7 @@ function Sobre() {
       <section className="border-y border-border bg-card/40 py-24">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
-            <h2 className="text-3xl font-semibold md:text-5xl">Marcas que já confiaram na Energy</h2>
+            <SplitText className="text-3xl font-semibold md:text-5xl">Marcas que já confiaram na Energy</SplitText>
           </Reveal>
           <ul className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
             {CLIENTS.map((c) => (
@@ -96,9 +96,9 @@ function Sobre() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-16 text-center md:py-24">
             <div className="absolute -top-32 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-primary/30 blur-3xl" />
-            <h2 className="relative mx-auto max-w-3xl text-4xl font-semibold md:text-6xl">
+            <SplitText className="relative mx-auto max-w-3xl text-4xl font-semibold md:text-6xl">
               Tem um projeto em mente? <span className="text-gradient">Fale com a gente.</span>
-            </h2>
+            </SplitText>
             <div className="relative mt-10 flex flex-wrap justify-center gap-3">
               <Link to="/orcamento" className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 font-medium text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5">
                 Pedir orçamento <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />

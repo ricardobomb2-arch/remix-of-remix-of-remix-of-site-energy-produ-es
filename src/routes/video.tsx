@@ -525,9 +525,9 @@ function Video() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-16 text-center md:py-24">
             <div className="absolute -top-32 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-primary/30 blur-3xl" />
-            <h2 className="relative mx-auto max-w-3xl text-4xl font-semibold md:text-6xl">
+            <SplitText className="relative mx-auto max-w-3xl text-4xl font-semibold md:text-6xl">
               Tem um projeto em mente? <span className="text-gradient">Fale com a gente.</span>
-            </h2>
+            </SplitText>
             <div className="relative mt-10 flex flex-wrap justify-center gap-3">
               <Link
                 to="/orcamento"
