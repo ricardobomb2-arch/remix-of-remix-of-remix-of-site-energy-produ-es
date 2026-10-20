@@ -3,7 +3,7 @@ import { useState, type ReactNode } from "react";
 import { ArrowUpRight, Play, X, Award, Zap, Target, Users, MessageCircle } from "lucide-react";
 import studio from "@/assets/estudio-panoramica.jpg.asset.json";
 import { EnergyLogo, Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
-import { CountUp, SplitText } from "@/components/site-motion";
+import { CountUp, HeroParallax, SplitText } from "@/components/site-motion";
 
 const IMG = {
   video: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1400&q=80",
@@ -148,7 +148,7 @@ function Index() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-[100svh] flex-col overflow-hidden">
-        <img src={studio.url} alt="Estúdio da Energy Produções" className="w-full shrink-0 object-contain" />
+        <HeroParallax src={studio.url} alt="Estúdio da Energy Produções" />
         <div className="relative flex flex-1 flex-col justify-end">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-28 -translate-y-full bg-gradient-to-b from-transparent to-background" />
         <div className="mx-auto w-full max-w-7xl px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-20">

@@ -1,4 +1,5 @@
 # Ajustes solicitados
+- [x] Aplicar parallax sutil à foto de abertura, mantendo enquadramento e movimento reduzido.
 - [x] Adicionar luz quente e sutil acompanhando o mouse nas áreas escuras.
 - [x] Adicionar comparação fotográfica arrastável antes/depois, identificada como demonstração.
 - [x] Validar controles e preservar efeitos existentes: quatro testes passaram, sem erros de compilação.
