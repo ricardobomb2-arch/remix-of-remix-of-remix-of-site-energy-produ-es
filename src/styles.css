@@ -232,6 +232,21 @@
   &.is-visible { opacity: 1; transform: none; }
 }
 
+/* Split reveal: cada palavra do título sobe de trás de uma máscara, em fila. */
+.split-unit {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.18em 0 0.26em;
+  margin: -0.18em 0 -0.26em;
+}
+.split-unit-inner {
+  display: inline-block;
+  transform: translateY(140%);
+  transition: transform 0.85s cubic-bezier(.22,1,.36,1);
+  transition-delay: calc(var(--split-i, 0) * var(--split-step, 70ms));
+}
+.split-text.is-split-visible .split-unit-inner { transform: translateY(0); }
+
 /* A broad, feathered studio beam brings out grain only on dark section surfaces. */
 main section { position: relative; }
 main section::after {
@@ -537,6 +552,7 @@ main section[data-scene-light="active"]::after {
   .title-focus { animation: none; filter: none; opacity: 1; transform: none; }
   .marquee:not(.service-marquee), .grain::before { animation: none; }
   .reveal, .reveal.is-pending:not(.is-visible) { opacity: 1; transform: none; transition: none; }
+  .split-unit-inner { transform: none !important; transition: none; }
   .page-curtain { display: none; animation: none; }
   .energy-card:hover, .energy-card.is-lit, .energy-card:focus-within { transform: none; }
   .energy-card:hover::after, .energy-card.is-lit::after, .energy-card:focus-within::after { animation: none; }

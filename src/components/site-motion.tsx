@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Children, Fragment, isValidElement, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type ReactNode } from "react";
 import { useRouter, useRouterState } from "@tanstack/react-router";
 
 /** A softly textured warm beam is confined to dark section backgrounds, never a replacement cursor. */
@@ -148,6 +148,82 @@ export function CameraCursor() {
     </div>
     </>
   );
+}
+
+type SplitUnit = { text: string; className?: string } | { node: ReactElement };
+
+/** Divide o título em palavras, guardando a classe de cada span inline (ex.: text-gradient). */
+function collectSplitUnits(children: ReactNode): SplitUnit[] {
+  const units: SplitUnit[] = [];
+  Children.toArray(children).forEach((child) => {
+    if (typeof child === "string" || typeof child === "number") {
+      String(child).split(/\s+/).filter(Boolean).forEach((word) => units.push({ text: word }));
+      return;
+    }
+    if (!isValidElement(child)) return;
+    const element = child as ReactElement<{ className?: string; children?: ReactNode }>;
+    const inner = element.props.children;
+    const word = typeof inner === "string" || typeof inner === "number" ? String(inner) : "";
+    // Uma só palavra dentro do span ganha a classe dele; frases maiores sobem juntas para não quebrar o gradiente.
+    if (word && word === word.trim() && !/\s/.test(word)) {
+      units.push({ text: word, className: element.props.className });
+      return;
+    }
+    units.push({ node: element });
+  });
+  return units;
+}
+
+/** A cortina de navegação cobre a tela por um instante; a entrada da primeira tela espera ela subir. */
+const SPLIT_CURTAIN_WAIT = 260;
+
+/** Título que sobe palavra por palavra atrás de uma máscara quando entra na tela. */
+export function SplitText({ children, className = "", as = "h2", step = 70 }: {
+  children: ReactNode;
+  className?: string;
+  as?: "h1" | "h2" | "h3";
+  step?: number;
+}) {
+  const ref = useRef<HTMLHeadingElement>(null);
+  const units = useMemo(() => collectSplitUnits(children), [children]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const show = () => el.classList.add("is-split-visible");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      show();
+      return;
+    }
+    const bounds = el.getBoundingClientRect();
+    if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+      const timer = setTimeout(show, SPLIT_CURTAIN_WAIT);
+      return () => clearTimeout(timer);
+    }
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      show();
+    }, { threshold: 0.2, rootMargin: "0px 0px -24px 0px" });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [units.length]);
+
+  const words = units.map((unit, index) => (
+    <Fragment key={index}>
+      {index > 0 ? " " : null}
+      <span className="split-unit" style={{ "--split-i": `${index}`, "--split-step": `${step}ms` } as CSSProperties}>
+        <span className="split-unit-inner">
+          {"text" in unit ? <span className={unit.className}>{unit.text}</span> : unit.node}
+        </span>
+      </span>
+    </Fragment>
+  ));
+  const root = `split-text ${className}`.trim();
+
+  if (as === "h1") return <h1 ref={ref} className={root}>{words}</h1>;
+  if (as === "h3") return <h3 ref={ref} className={root}>{words}</h3>;
+  return <h2 ref={ref} className={root}>{words}</h2>;
 }
 
 /** Número que conta de 0 até o valor quando entra na tela. */
