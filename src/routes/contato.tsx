@@ -3,6 +3,7 @@ import { Facebook, Instagram, Mail, MessageCircle, Youtube, Twitter } from "luci
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 
 const MAP_SRC =
   "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3655.630804927391!2d-46.67105772380827!3d-23.6175701636613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1692302441722!5m2!1spt-BR!2sbr";
@@ -29,9 +30,9 @@ function Contato() {
       {/* CABEÇALHO */}
       <section className="mx-auto max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-20 md:pt-40">
         <Reveal>
-          <h1 className="text-4xl font-semibold sm:text-5xl md:text-7xl">
+          <SplitText as="h1" className="text-4xl font-semibold sm:text-5xl md:text-7xl">
             Fale com a <span className="text-gradient">gente</span>
-          </h1>
+          </SplitText>
         </Reveal>
       </section>
 

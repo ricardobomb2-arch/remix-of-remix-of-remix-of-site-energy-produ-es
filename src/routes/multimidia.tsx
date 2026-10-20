@@ -16,6 +16,7 @@ import designImg from "@/assets/multimidia/design.jpg";
 import digitalizacaoImg from "@/assets/multimidia/digitalizacao.jpg";
 import dvdImg from "@/assets/multimidia/dvd.jpg";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 
 const HERO = "https://images.unsplash.com/photo-1763132646264-4123ae7cf4a6?auto=format&fit=crop&w=1600&q=80";
 const VHS = "https://images.unsplash.com/photo-1481137344492-d5a150a97f8b?auto=format&fit=crop&w=1200&q=80";
@@ -66,9 +67,9 @@ function Multimidia() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-overlay/75 to-overlay/60" />
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-24">
           <Reveal>
-            <h1 className="text-6xl font-semibold leading-[0.95] sm:text-8xl md:text-9xl">
+            <SplitText as="h1" className="text-6xl font-semibold leading-[0.95] sm:text-8xl md:text-9xl">
               <span className="text-gradient">Multimídia</span>
-            </h1>
+            </SplitText>
             <p className="mt-6 max-w-2xl font-display text-xl md:text-3xl">
               Comunicação em vários formatos para levar sua mensagem de forma clara e objetiva.
             </p>

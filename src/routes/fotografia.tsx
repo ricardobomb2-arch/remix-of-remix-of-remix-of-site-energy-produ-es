@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Camera, Lightbulb, MessageCircle } from "lucide-react";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 import { Button } from "@/components/ui/button";
 import { PhotographyGallery, type GalleryPhoto } from "@/components/photography-gallery";
 import { PhotographyComparison } from "@/components/photography-comparison";
@@ -42,7 +43,7 @@ function Fotografia() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-overlay/60 to-overlay/80" />
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-24">
           <Reveal>
-            <h1 className="break-words text-5xl font-semibold leading-tight tracking-normal text-gradient sm:text-7xl md:text-8xl">Fotografia</h1>
+            <SplitText as="h1" className="break-words text-5xl font-semibold leading-tight tracking-normal sm:text-7xl md:text-8xl"><span className="text-gradient">Fotografia</span></SplitText>
             <p className="mt-6 max-w-2xl text-xl leading-relaxed text-foreground md:text-2xl">Da produção à preparação do set fotográfico.</p>
           </Reveal>
         </div>
@@ -62,7 +63,7 @@ function Fotografia() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-        <Reveal><h2 className="text-4xl font-semibold tracking-normal md:text-6xl">Especialidades</h2></Reveal>
+        <Reveal><SplitText className="text-4xl font-semibold tracking-normal md:text-6xl">Especialidades</SplitText></Reveal>
         <Reveal delay={80}><p className="mt-6 max-w-4xl text-lg leading-relaxed text-muted-foreground">Corporativo, institucional, still de produtos, moda e fashion, desfiles, book, gestante, automobilismo e eventos.</p></Reveal>
         <div className="mt-10 flex flex-wrap gap-3" aria-hidden="true">
           {SPECIALTIES.map((specialty, index) => <Reveal key={specialty} delay={(index % 5) * 60}>
@@ -73,14 +74,14 @@ function Fotografia() {
 
       <section className="border-t border-border py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <Reveal><h2 className="mb-10 text-4xl font-semibold tracking-normal md:text-6xl">Antes e depois</h2></Reveal>
+          <Reveal><SplitText className="mb-10 text-4xl font-semibold tracking-normal md:text-6xl">Antes e depois</SplitText></Reveal>
           <PhotographyComparison beforeSrc={ensaios.url} alt="Retrato feminino em ensaio fotográfico" />
         </div>
       </section>
 
       <section className="border-y border-border bg-card/40 py-24 md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <Reveal><h2 className="text-4xl font-semibold tracking-normal md:text-6xl">Galeria</h2></Reveal>
+          <Reveal><SplitText className="text-4xl font-semibold tracking-normal md:text-6xl">Galeria</SplitText></Reveal>
           <PhotographyGallery photos={PHOTOS} />
         </div>
       </section>
@@ -88,7 +89,7 @@ function Fotografia() {
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
         <Reveal>
           <div className="text-center">
-            <h2 className="mx-auto max-w-3xl text-4xl font-semibold tracking-normal md:text-6xl">Tem um projeto em mente? <span className="text-gradient">Fale com a gente.</span></h2>
+            <SplitText className="mx-auto max-w-3xl text-4xl font-semibold tracking-normal md:text-6xl">Tem um projeto em mente? <span className="text-gradient">Fale com a gente.</span></SplitText>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Button asChild className="group h-auto rounded-full bg-gradient-primary px-7 py-3.5 text-base shadow-glow"><Link to="/orcamento">Pedir orçamento <ArrowUpRight className="transition-transform group-hover:rotate-45" /></Link></Button>
               <Button asChild variant="outline" className="h-auto whitespace-normal rounded-full px-7 py-3.5 text-base hover:border-whatsapp hover:text-whatsapp"><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"><MessageCircle />Chamar no WhatsApp</a></Button>

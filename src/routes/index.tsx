@@ -3,7 +3,7 @@ import { useState, type ReactNode } from "react";
 import { ArrowUpRight, Play, X, Award, Zap, Target, Users, MessageCircle } from "lucide-react";
 import studio from "@/assets/estudio-panoramica.jpg.asset.json";
 import { EnergyLogo, Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
-import { CountUp } from "@/components/site-motion";
+import { CountUp, SplitText } from "@/components/site-motion";
 
 const IMG = {
   video: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1400&q=80",
@@ -197,7 +197,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
         <Reveal>
           <p className="text-sm uppercase tracking-[0.2em] text-primary">Serviços</p>
-          <h2 className="mt-3 text-4xl font-semibold md:text-6xl">Da ideia à entrega.</h2>
+          <SplitText className="mt-3 text-4xl font-semibold md:text-6xl">Da ideia à entrega.</SplitText>
         </Reveal>
         <div className="mt-12 grid gap-4 md:grid-cols-3 md:grid-rows-2 md:[grid-auto-rows:minmax(280px,1fr)]">
           {SERVICES.map((s, i) => (
@@ -219,7 +219,7 @@ function Index() {
       {/* WHY */}
       <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
         <Reveal>
-          <h2 className="text-4xl font-semibold md:text-6xl">Por que a <span className="text-gradient">Energy</span></h2>
+          <SplitText className="text-4xl font-semibold md:text-6xl">Por que a <span className="text-gradient">Energy</span></SplitText>
         </Reveal>
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {WHY.map(({ Icon, title, text }, i) => (
@@ -268,7 +268,7 @@ function Index() {
       {/* CLIENTS */}
       <section className="border-y border-border py-16">
         <Reveal>
-          <h2 className="mb-10 px-5 text-center text-2xl font-semibold md:text-4xl">Marcas que já confiaram na Energy</h2>
+          <SplitText className="mb-10 px-5 text-center text-2xl font-semibold md:text-4xl">Marcas que já confiaram na Energy</SplitText>
         </Reveal>
         <div className="space-y-4 text-lg text-muted-foreground md:text-2xl">
           <Marquee items={CLIENTS.slice(0, 24)} duration="90s" sep="·" />
@@ -283,7 +283,7 @@ function Index() {
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-primary">Portfólio</p>
-            <h2 className="mt-3 text-4xl font-semibold md:text-6xl">Trabalhos recentes</h2>
+            <SplitText className="mt-3 text-4xl font-semibold md:text-6xl">Trabalhos recentes</SplitText>
           </div>
           <Link to="/portfolio" className="group inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 transition-colors hover:border-primary hover:text-primary">
             Ver portfólio completo <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
@@ -301,9 +301,9 @@ function Index() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-16 text-center md:py-24">
             <div className="absolute -top-32 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-primary/30 blur-3xl" />
-            <h2 className="relative mx-auto max-w-3xl text-4xl font-semibold md:text-6xl">
+            <SplitText className="relative mx-auto max-w-3xl text-4xl font-semibold md:text-6xl">
               Tem um projeto em mente? <span className="text-gradient">Fale com a gente.</span>
-            </h2>
+            </SplitText>
             <div className="relative mt-10 flex flex-wrap justify-center gap-3">
               <Link to="/orcamento" className="glow-orange inline-flex items-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 font-medium text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5">
                 Pedir orçamento

@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { MessageCircle, Play, X } from "lucide-react";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
 import { Tilt } from "@/components/site-motion";
+import { SplitText } from "@/components/site-motion";
 
 export const Route = createFileRoute("/portfolio")({
   head: () =>
@@ -74,9 +75,9 @@ function Portfolio() {
       {/* CABEÇALHO */}
       <section className="mx-auto max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-20 md:pt-40">
         <Reveal>
-          <h1 className="text-6xl font-semibold leading-[0.95] sm:text-8xl md:text-9xl">
+          <SplitText as="h1" className="text-6xl font-semibold leading-[0.95] sm:text-8xl md:text-9xl">
             <span className="text-gradient">Portfólio</span>
-          </h1>
+          </SplitText>
           <p className="mt-6 max-w-2xl font-display text-xl md:text-3xl">
             Alguns dos nossos trabalhos.
           </p>

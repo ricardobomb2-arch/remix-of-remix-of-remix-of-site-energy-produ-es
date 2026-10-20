@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import ilha from "@/assets/ilha-de-edicao.jpg";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 
 const HERO = "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1600&q=80";
 const DRONE = "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80";
@@ -133,9 +134,9 @@ function Video() {
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-24">
           <Reveal>
             <p className="text-sm uppercase tracking-[0.2em] text-primary">Produção audiovisual</p>
-            <h1 className="mt-3 text-6xl font-semibold leading-[0.95] sm:text-8xl md:text-9xl">
+            <SplitText as="h1" className="mt-3 text-6xl font-semibold leading-[0.95] sm:text-8xl md:text-9xl">
               <span className="text-gradient">Vídeo</span>
-            </h1>
+            </SplitText>
             <p className="mt-6 max-w-2xl font-display text-xl md:text-3xl">
               Produção, edição e finalização de ponta a ponta.
             </p>
@@ -524,9 +525,9 @@ function Video() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-16 text-center md:py-24">
             <div className="absolute -top-32 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-primary/30 blur-3xl" />
-            <h2 className="relative mx-auto max-w-3xl text-4xl font-semibold md:text-6xl">
+            <SplitText className="relative mx-auto max-w-3xl text-4xl font-semibold md:text-6xl">
               Tem um projeto em mente? <span className="text-gradient">Fale com a gente.</span>
-            </h2>
+            </SplitText>
             <div className="relative mt-10 flex flex-wrap justify-center gap-3">
               <Link
                 to="/orcamento"
