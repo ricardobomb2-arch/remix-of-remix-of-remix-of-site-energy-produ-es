@@ -150,7 +150,7 @@ export function CameraCursor() {
   );
 }
 
-type SplitUnit = { text: string; className?: string } | { node: ReactElement };
+type SplitUnit = { text: string; className?: string | undefined } | { node: ReactElement };
 
 /** Divide o título em palavras, guardando a classe de cada span inline (ex.: text-gradient). */
 function collectSplitUnits(children: ReactNode): SplitUnit[] {
