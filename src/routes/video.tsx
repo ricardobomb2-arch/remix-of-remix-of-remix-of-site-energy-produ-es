@@ -134,9 +134,9 @@ function Video() {
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-24">
           <Reveal>
             <p className="text-sm uppercase tracking-[0.2em] text-primary">Produção audiovisual</p>
-            <h1 className="mt-3 text-6xl font-semibold leading-[0.95] sm:text-8xl md:text-9xl">
+            <SplitText as="h1" className="mt-3 text-6xl font-semibold leading-[0.95] sm:text-8xl md:text-9xl">
               <span className="text-gradient">Vídeo</span>
-            </h1>
+            </SplitText>
             <p className="mt-6 max-w-2xl font-display text-xl md:text-3xl">
               Produção, edição e finalização de ponta a ponta.
             </p>

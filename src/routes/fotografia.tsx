@@ -43,7 +43,7 @@ function Fotografia() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-overlay/60 to-overlay/80" />
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-24">
           <Reveal>
-            <h1 className="break-words text-5xl font-semibold leading-tight tracking-normal text-gradient sm:text-7xl md:text-8xl">Fotografia</h1>
+            <SplitText as="h1" className="break-words text-5xl font-semibold leading-tight tracking-normal sm:text-7xl md:text-8xl"><span className="text-gradient">Fotografia</span></SplitText>
             <p className="mt-6 max-w-2xl text-xl leading-relaxed text-foreground md:text-2xl">Da produção à preparação do set fotográfico.</p>
           </Reveal>
         </div>

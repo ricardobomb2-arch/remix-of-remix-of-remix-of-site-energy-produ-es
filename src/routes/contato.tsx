@@ -30,9 +30,9 @@ function Contato() {
       {/* CABEÇALHO */}
       <section className="mx-auto max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-20 md:pt-40">
         <Reveal>
-          <h1 className="text-4xl font-semibold sm:text-5xl md:text-7xl">
+          <SplitText as="h1" className="text-4xl font-semibold sm:text-5xl md:text-7xl">
             Fale com a <span className="text-gradient">gente</span>
-          </h1>
+          </SplitText>
         </Reveal>
       </section>
 

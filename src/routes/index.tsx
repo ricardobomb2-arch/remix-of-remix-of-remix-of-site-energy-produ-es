@@ -197,7 +197,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
         <Reveal>
           <p className="text-sm uppercase tracking-[0.2em] text-primary">Serviços</p>
-          <h2 className="mt-3 text-4xl font-semibold md:text-6xl">Da ideia à entrega.</h2>
+          <SplitText className="mt-3 text-4xl font-semibold md:text-6xl">Da ideia à entrega.</SplitText>
         </Reveal>
         <div className="mt-12 grid gap-4 md:grid-cols-3 md:grid-rows-2 md:[grid-auto-rows:minmax(280px,1fr)]">
           {SERVICES.map((s, i) => (
