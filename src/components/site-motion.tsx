@@ -1,6 +1,53 @@
 import { Children, Fragment, isValidElement, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type ReactNode } from "react";
 import { useRouter, useRouterState } from "@tanstack/react-router";
 
+/** A foto mantém o enquadramento original e acompanha a rolagem mais devagar, sem mover o conteúdo. */
+export function HeroParallax({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const container = ref.current;
+    const image = imageRef.current;
+    if (!container || !image) return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      if (media.matches) {
+        image.style.removeProperty("transform");
+        return;
+      }
+      const bounds = container.getBoundingClientRect();
+      const offset = Math.min(Math.max(-bounds.top, 0), bounds.height) * 0.18;
+      image.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    const resize = typeof ResizeObserver !== "undefined" ? new ResizeObserver(schedule) : null;
+    resize?.observe(container);
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    media.addEventListener("change", schedule);
+    update();
+    return () => {
+      cancelAnimationFrame(frame);
+      resize?.disconnect();
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      media.removeEventListener("change", schedule);
+      image.style.removeProperty("transform");
+    };
+  }, []);
+
+  return (
+    <div ref={ref} className="hero-parallax w-full shrink-0 overflow-hidden">
+      <img ref={imageRef} src={src} alt={alt} fetchPriority="high" className="block w-full object-contain motion-safe:will-change-transform" />
+    </div>
+  );
+}
+
 /** A softly textured warm beam is confined to dark section backgrounds, never a replacement cursor. */
 export function SceneLight() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
@@ -19,7 +66,7 @@ export function SceneLight() {
     const move = (event: PointerEvent) => {
       if (!media.matches || event.pointerType !== "mouse" || !(event.target instanceof Element)) { clear(); return; }
       const section = event.target.closest<HTMLElement>("main section");
-      if (!section || event.target.closest("img, video, iframe, .photo-comparison, .tilt") || section.querySelector(":scope > img")) { clear(); return; }
+      if (!section || event.target.closest("img, video, iframe, .photo-comparison, .tilt") || section.querySelector(":scope > img, :scope > .hero-parallax")) { clear(); return; }
       // Resolve translucent section backgrounds against their dark ancestor surfaces.
       let surface: HTMLElement | null = section;
       let dark = false;
