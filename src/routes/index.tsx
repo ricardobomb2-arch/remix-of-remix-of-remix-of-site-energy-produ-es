@@ -3,7 +3,7 @@ import { useState, type ReactNode } from "react";
 import { ArrowUpRight, Play, X, Award, Zap, Target, Users, MessageCircle } from "lucide-react";
 import studio from "@/assets/estudio-panoramica.jpg.asset.json";
 import { EnergyLogo, Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
-import { CountUp } from "@/components/site-motion";
+import { CountUp, SplitText } from "@/components/site-motion";
 
 const IMG = {
   video: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1400&q=80",

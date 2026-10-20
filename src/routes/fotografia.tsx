@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Camera, Lightbulb, MessageCircle } from "lucide-react";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 import { Button } from "@/components/ui/button";
 import { PhotographyGallery, type GalleryPhoto } from "@/components/photography-gallery";
 import { PhotographyComparison } from "@/components/photography-comparison";

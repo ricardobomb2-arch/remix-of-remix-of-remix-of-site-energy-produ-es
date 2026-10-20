@@ -16,6 +16,7 @@ import designImg from "@/assets/multimidia/design.jpg";
 import digitalizacaoImg from "@/assets/multimidia/digitalizacao.jpg";
 import dvdImg from "@/assets/multimidia/dvd.jpg";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 
 const HERO = "https://images.unsplash.com/photo-1763132646264-4123ae7cf4a6?auto=format&fit=crop&w=1600&q=80";
 const VHS = "https://images.unsplash.com/photo-1481137344492-d5a150a97f8b?auto=format&fit=crop&w=1200&q=80";

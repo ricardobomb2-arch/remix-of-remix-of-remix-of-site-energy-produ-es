@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Award } from "lucide-react";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 
 const HERO = "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1600&q=80";
 const SIDE = "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80";

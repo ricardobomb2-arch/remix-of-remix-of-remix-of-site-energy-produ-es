@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { MessageCircle, Play, X } from "lucide-react";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
 import { Tilt } from "@/components/site-motion";
+import { SplitText } from "@/components/site-motion";
 
 export const Route = createFileRoute("/portfolio")({
   head: () =>

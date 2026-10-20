@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 import { QuoteForm } from "@/components/quote-form";
 import { Button } from "@/components/ui/button";
 

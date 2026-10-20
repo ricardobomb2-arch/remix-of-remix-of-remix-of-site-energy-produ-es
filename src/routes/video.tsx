@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import ilha from "@/assets/ilha-de-edicao.jpg";
 import { Reveal, WHATSAPP_URL, pageHead } from "@/components/site";
+import { SplitText } from "@/components/site-motion";
 
 const HERO = "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1600&q=80";
 const DRONE = "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80";
